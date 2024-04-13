@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Example</title>
+    <script src="qrcode.js"></script>
+    <style>
+        #qrcode {
+            width: 160px;
+            height: 160px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="text" placeholder="Введите текст для QR кода">
+<button onclick="generateQRCode()">Сгенерировать QR код</button>
+<div id="qrcode"></div>
+
+<script>
+    function generateQRCode() {
+        var text = document.getElementById("text").value;
+        var qrcodeContainer = document.getElementById("qrcode");
+        qrcodeContainer.innerHTML = '';  // Clear the container
+        
+        if (text.trim() !== '') {
+            var qrCode = new QRCode(qrcodeContainer, {
+                text: text,
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+    }
+</script>
+
+</body>
+</html>

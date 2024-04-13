@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>snapurl.ru</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='qrcode.js') }}"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Сервис сокращения ссылок - snapurl</h1>
+            <input type="text" id="urlInput" placeholder="Введите ссылку">
+            <button id="shortenBtn">Сократить</button>
+           
+            <div id="result" style="display: none;">
+                <input type="text" id="shortUrl" readonly>
+                <button id="copyBtn">Копировать</button>
+                <button id="generateQRBtn">Генерировать QR</button>
+            </div>
+            <div id="history" style="display: none;">
+                <!-- Здесь будет история сокращенных ссылок -->
+            </div>
+        </div>
+        <div class="right-panel" id="qrCode" style="display: none;">
+            <!-- Тут будет отображаться QR код после генерации -->
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
